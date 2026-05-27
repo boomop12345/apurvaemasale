@@ -274,19 +274,19 @@ export const HERITAGE_STORIES: HeritageStory[] = [
 ];
 
 export const DEFAULT_USER: UserProfile = {
-  name: "Arjun Apurvae",
-  email: "arjun@apurvaemasale.com",
+  name: "Apurva Masale",
+  email: "apurvamasale@gmail.com",
   phone: "+91 98765 43210",
   defaultAddress: {
-    firstName: "Arjun",
-    lastName: "Apurvae",
+    firstName: "Apurva",
+    lastName: "Masale",
     addressLine1: "House of Heritage, 12 Saffron Lane",
     addressLine2: "DLF Phase 3",
     city: "Gurugram",
     state: "Haryana",
     pinCode: "122002",
     phone: "+91 98765 43210",
-    email: "arjun@apurvaemasale.com"
+    email: "apurvamasale@gmail.com"
   }
 };
 
@@ -306,7 +306,7 @@ export const INITIAL_ORDERS: Order[] = [
     subtotal: 360,
     total: 360,
     bookingContact: {
-      fullName: "Arjun Apurvae",
+      fullName: "Apurva Masale",
       phone: "+91 98765 43210",
       deliveryNote: ""
     },
@@ -328,7 +328,7 @@ export const INITIAL_ORDERS: Order[] = [
     subtotal: 490,
     total: 490,
     bookingContact: {
-      fullName: "Arjun Apurvae",
+      fullName: "Apurva Masale",
       phone: "+91 98765 43210",
       deliveryNote: "Can you deliver to MG Road if possible?"
     },
