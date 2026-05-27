@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Left Actions: Home & Search */}
-          <div className="flex-1 flex justify-start items-center gap-2 sm:gap-4">
+          <div className="flex-1 flex justify-start items-center gap-0.5 sm:gap-4">
             <button
               onClick={() => setCurrentPage('home')}
               className="flex items-center gap-2 p-2 rounded-full hover:bg-brand-50 text-brand-800 transition duration-200 group"
@@ -44,23 +44,23 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Centered Brand Signature */}
-          <div className="flex-shrink-0 text-center flex flex-col items-center">
+          <div className="flex-shrink-0 text-center flex flex-col items-center px-1 sm:px-4">
             <button
               onClick={() => setCurrentPage('home')}
               id="header-logo-btn"
               className="group focus:outline-none"
             >
-              <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.2em] text-brand-950 transition-colors duration-300 group-hover:text-gold-600">
+              <h1 className="font-serif text-base sm:text-2xl lg:text-3xl font-bold tracking-[0.1em] sm:tracking-[0.2em] text-brand-950 transition-colors duration-300 group-hover:text-gold-600 whitespace-nowrap">
                 APURVAE MASALE
               </h1>
-              <p className="text-[9px] font-mono tracking-[0.3em] uppercase text-gold-500 mt-0.5 group-hover:text-brand-950 transition-colors">
+              <p className="hidden sm:block text-[9px] font-mono tracking-[0.3em] uppercase text-gold-500 mt-0.5 group-hover:text-brand-950 transition-colors">
                 The Heritage Spice Archivist
               </p>
             </button>
           </div>
 
           {/* Right Actions: Account, Saved, Bag */}
-          <div className="flex-1 flex justify-end items-center gap-3 sm:gap-4">
+          <div className="flex-1 flex justify-end items-center gap-0.5 sm:gap-4">
             
             {/* Account */}
             <button
