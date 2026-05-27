@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 import { Search, Heart, ShoppingBag, User, Sparkles, Home } from 'lucide-react';
 
@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
   } = useApp();
 
   const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
       
       // On mobile only: hide header on scroll down, show on scroll up
       if (window.innerWidth < 768) {
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
           setHidden(true);
         } else {
           setHidden(false);
@@ -28,12 +28,12 @@ export const Header: React.FC = () => {
         setHidden(false);
       }
       
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-100 transition-transform duration-300 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}>
