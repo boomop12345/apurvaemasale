@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Search, Heart, ShoppingBag, User, Sparkles } from 'lucide-react';
+import { Search, Heart, ShoppingBag, User, Sparkles, Home } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const { 
@@ -21,8 +21,17 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Left Action: Search */}
-          <div className="flex-1 flex justify-start">
+          {/* Left Actions: Home & Search */}
+          <div className="flex-1 flex justify-start items-center gap-2 sm:gap-4">
+            <button
+              onClick={() => setCurrentPage('home')}
+              className="flex items-center gap-2 p-2 rounded-full hover:bg-brand-50 text-brand-800 transition duration-200 group"
+              aria-label="Home"
+            >
+              <Home className="w-5 h-5 group-hover:scale-105 transition" />
+              <span className="hidden lg:inline text-xs font-mono tracking-widest uppercase text-brand-600">Home</span>
+            </button>
+
             <button
               onClick={() => setIsSearchOverlayOpen(true)}
               id="header-search-btn"
@@ -30,7 +39,7 @@ export const Header: React.FC = () => {
               aria-label="Search Collection"
             >
               <Search className="w-5 h-5 group-hover:scale-105 transition" />
-              <span className="hidden md:inline text-xs font-mono tracking-widest uppercase text-brand-600">Discover</span>
+              <span className="hidden lg:inline text-xs font-mono tracking-widest uppercase text-brand-600">Discover</span>
             </button>
           </div>
 
