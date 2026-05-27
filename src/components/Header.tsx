@@ -44,16 +44,16 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Centered Brand Signature */}
-          <div className="flex-shrink-0 text-center flex flex-col items-center px-1 sm:px-4">
+          <div className="flex-shrink-0 text-center flex flex-col items-center px-1 md:px-4 max-w-[50%]">
             <button
               onClick={() => setCurrentPage('home')}
               id="header-logo-btn"
-              className="group focus:outline-none"
+              className="group focus:outline-none flex flex-col items-center justify-center"
             >
-              <h1 className="font-serif text-base sm:text-2xl lg:text-3xl font-bold tracking-[0.1em] sm:tracking-[0.2em] text-brand-950 transition-colors duration-300 group-hover:text-gold-600 whitespace-nowrap">
+              <h1 className="font-serif text-xs sm:text-sm md:text-2xl lg:text-3xl font-bold tracking-[0.05em] md:tracking-[0.2em] text-brand-950 transition-colors duration-300 group-hover:text-gold-600 whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                 APURVAE MASALE
               </h1>
-              <p className="hidden sm:block text-[9px] font-mono tracking-[0.3em] uppercase text-gold-500 mt-0.5 group-hover:text-brand-950 transition-colors">
+              <p className="hidden md:block text-[9px] font-mono tracking-[0.3em] uppercase text-gold-500 mt-0.5 group-hover:text-brand-950 transition-colors">
                 The Heritage Spice Archivist
               </p>
             </button>
