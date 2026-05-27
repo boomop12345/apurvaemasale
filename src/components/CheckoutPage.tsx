@@ -67,7 +67,7 @@ export const CheckoutPage: React.FC = () => {
     createBooking(contact);
 
     // Open WhatsApp with pre-filled message
-    const whatsappNumber = '919876543210'; // Replace with your actual number
+    const whatsappNumber = '910000000000'; // Replace with your actual number
     const encodedMsg = encodeURIComponent(formatWhatsAppMessage());
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}`, '_blank');
 

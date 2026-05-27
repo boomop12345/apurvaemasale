@@ -276,7 +276,7 @@ export const HERITAGE_STORIES: HeritageStory[] = [
 export const DEFAULT_USER: UserProfile = {
   name: "Apurva Masale",
   email: "apurvamasale@gmail.com",
-  phone: "+91 98765 43210",
+  phone: "+91 00000 00000",
   defaultAddress: {
     firstName: "Apurva",
     lastName: "Masale",
@@ -285,7 +285,7 @@ export const DEFAULT_USER: UserProfile = {
     city: "Gurugram",
     state: "Haryana",
     pinCode: "122002",
-    phone: "+91 98765 43210",
+    phone: "+91 00000 00000",
     email: "apurvamasale@gmail.com"
   }
 };
@@ -307,7 +307,7 @@ export const INITIAL_ORDERS: Order[] = [
     total: 360,
     bookingContact: {
       fullName: "Apurva Masale",
-      phone: "+91 98765 43210",
+      phone: "+91 00000 00000",
       deliveryNote: ""
     },
     fulfillment: "Pickup",
@@ -329,7 +329,7 @@ export const INITIAL_ORDERS: Order[] = [
     total: 490,
     bookingContact: {
       fullName: "Apurva Masale",
-      phone: "+91 98765 43210",
+      phone: "+91 00000 00000",
       deliveryNote: "Can you deliver to MG Road if possible?"
     },
     fulfillment: "Delivery Requested",
