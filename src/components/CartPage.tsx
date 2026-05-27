@@ -55,15 +55,15 @@ export const CartPage: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-200/30 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 pb-28 md:pb-20">
         
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-left space-y-2 mb-10 pb-6 border-b border-brand-200/40"
+          className="text-center space-y-2 mb-10"
         >
-          <h2 className="font-serif text-3xl font-bold text-brand-950">Your Bag</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-950">Your Bag</h2>
           <p className="text-xs font-mono uppercase tracking-wider text-brand-500">Review your selections before booking</p>
         </motion.div>
 
@@ -81,29 +81,38 @@ export const CartPage: React.FC = () => {
                 {cart.map((item) => (
                   <div
                     key={`${item.product.id}-${item.selectedWeight}`}
-                    className="p-5 flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-between text-left"
+                    className="p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:gap-5 items-start sm:items-center justify-between text-left relative"
                   >
+                    {/* Mobile Remove Button (Absolute top right) */}
+                    <button
+                      onClick={() => removeFromCart(item.product, item.selectedWeight)}
+                      className="sm:hidden absolute top-4 right-4 p-2 text-brand-400 hover:text-red-500 bg-white/80 rounded-full shadow-sm"
+                      aria-label="Remove item"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+
                     {/* Product info */}
-                    <div className="flex gap-4 items-center flex-1 min-w-0">
+                    <div className="flex gap-3 sm:gap-4 items-center flex-1 min-w-0 w-full">
                       <img
                         src={item.product.images[0]}
                         alt={item.product.title}
-                        className="w-20 h-20 object-cover rounded-2xl border border-brand-100/60 cursor-pointer hover:scale-105 transition-transform"
+                        className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-2xl border border-brand-100/60 cursor-pointer hover:scale-105 transition-transform shrink-0"
                         onClick={() => handleProductSelect(item.product.id)}
                         referrerPolicy="no-referrer"
                       />
-                      <div className="min-w-0 flex-1">
-                        <span className="text-[9px] font-mono uppercase tracking-wider text-gold-600 block mb-0.5">
+                      <div className="min-w-0 flex-1 pr-10 sm:pr-0">
+                        <span className="text-[9px] font-mono uppercase tracking-wider text-gold-600 block mb-0.5 truncate">
                           {item.product.origin.split(',')[0]}
                         </span>
                         <h4
                           onClick={() => handleProductSelect(item.product.id)}
-                          className="font-serif text-lg font-bold text-brand-950 hover:text-gold-600 transition truncate cursor-pointer"
+                          className="font-serif text-base sm:text-lg font-bold text-brand-950 hover:text-gold-600 transition truncate cursor-pointer"
                         >
                           {item.product.title}
                         </h4>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="text-[9px] font-mono bg-brand-100/60 font-bold border border-brand-200/40 text-brand-850 px-2 py-0.5 rounded-lg">
+                        <div className="flex flex-wrap items-center gap-2 mt-1">
+                          <span className="text-[9px] font-mono bg-brand-100/60 font-bold border border-brand-200/40 text-brand-850 px-2 py-0.5 rounded-lg shrink-0">
                             {item.selectedWeight}
                           </span>
                           <span className="text-[10px] font-mono text-brand-400">₹{item.priceAtSelection} each</span>
@@ -112,20 +121,20 @@ export const CartPage: React.FC = () => {
                     </div>
 
                     {/* Controls */}
-                    <div className="flex items-center gap-5 justify-between sm:justify-end w-full sm:w-auto">
+                    <div className="flex items-center justify-between w-full sm:w-auto mt-2 sm:mt-0 pt-3 sm:pt-0 border-t border-brand-200/30 sm:border-t-0 gap-4">
                       {/* Quantity */}
-                      <div className="flex items-center border border-brand-200/50 bg-white/80 rounded-full overflow-hidden">
+                      <div className="flex items-center border border-brand-200/50 bg-white/80 rounded-full overflow-hidden shrink-0">
                         <button
                           onClick={() => updateCartQuantity(item.product, item.selectedWeight, item.quantity - 1)}
-                          className="p-2 px-3 hover:bg-brand-50 transition"
+                          className="p-1.5 sm:p-2 px-2.5 sm:px-3 hover:bg-brand-50 transition"
                           aria-label="Decrease"
                         >
                           <Minus className="w-3.5 h-3.5 text-brand-700" />
                         </button>
-                        <span className="px-3 text-xs font-mono font-bold text-brand-950 min-w-[24px] text-center">{item.quantity}</span>
+                        <span className="px-2 sm:px-3 text-xs font-mono font-bold text-brand-950 min-w-[20px] sm:min-w-[24px] text-center">{item.quantity}</span>
                         <button
                           onClick={() => updateCartQuantity(item.product, item.selectedWeight, item.quantity + 1)}
-                          className="p-2 px-3 hover:bg-brand-50 transition"
+                          className="p-1.5 sm:p-2 px-2.5 sm:px-3 hover:bg-brand-50 transition"
                           aria-label="Increase"
                         >
                           <Plus className="w-3.5 h-3.5 text-brand-700" />
@@ -133,14 +142,14 @@ export const CartPage: React.FC = () => {
                       </div>
 
                       {/* Price */}
-                      <div className="text-right min-w-[70px]">
+                      <div className="text-right sm:mr-2">
                         <p className="font-serif font-bold text-brand-950 text-base">₹{(item.priceAtSelection * item.quantity).toLocaleString()}</p>
                       </div>
 
-                      {/* Remove */}
+                      {/* Desktop Remove Button */}
                       <button
                         onClick={() => removeFromCart(item.product, item.selectedWeight)}
-                        className="p-2 text-brand-400 hover:text-red-500 hover:bg-red-50 rounded-full transition"
+                        className="hidden sm:block p-2 text-brand-400 hover:text-red-500 hover:bg-red-50 rounded-full transition shrink-0"
                         aria-label="Remove item"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -163,12 +172,12 @@ export const CartPage: React.FC = () => {
                     <Sparkles className="w-4 h-4 text-gold-600" />
                     You Might Also Like
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="flex sm:grid sm:grid-cols-3 gap-4 overflow-x-auto no-scrollbar pb-4 sm:overflow-visible sm:pb-0">
                     {crossSellItems.map((p) => (
                       <div
                         key={p.id}
                         onClick={() => handleProductSelect(p.id)}
-                        className="backdrop-blur-xl bg-white/60 border border-white/50 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 text-left cursor-pointer group"
+                        className="min-w-[220px] sm:min-w-0 shrink-0 backdrop-blur-xl bg-white/60 border border-white/50 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 text-left cursor-pointer group"
                       >
                         <img
                           src={p.images[0]}
@@ -248,12 +257,12 @@ export const CartPage: React.FC = () => {
                 </form>
 
                 {/* Total */}
-                <div className="flex justify-between items-end border-t border-brand-200/40 pt-4 text-left">
-                  <div>
-                    <span className="text-[10px] uppercase font-mono text-brand-400 block tracking-wider">Total</span>
+                <div className="border-t border-brand-200/40 pt-4 text-left">
+                  <span className="text-[10px] uppercase font-mono text-brand-400 block tracking-wider mb-1">Total</span>
+                  <div className="flex items-end gap-3">
                     <span className="text-3xl font-serif font-bold text-brand-950 leading-none">₹{totalCost.toLocaleString()}</span>
+                    <span className="text-[9px] text-brand-500 font-mono font-bold uppercase tracking-widest bg-brand-50 px-2 py-0.5 rounded border border-brand-100 mb-0.5">Pay on pickup</span>
                   </div>
-                  <span className="text-[9px] text-brand-400 font-mono block">Pay on pickup</span>
                 </div>
 
                 {/* Actions */}

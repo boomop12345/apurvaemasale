@@ -212,7 +212,7 @@ export const SearchOverlay: React.FC = () => {
             
             {/* Footer */}
             <div className="bg-brand-100/50 border-t border-brand-200/50 px-6 py-3 flex justify-between items-center text-[10px] font-mono text-brand-400 shrink-0">
-              <span>Press <kbd className="font-sans px-1.5 py-0.5 bg-white border border-brand-200 rounded text-brand-600 shadow-sm mx-1">Esc</kbd> to close</span>
+              <span className="hidden sm:inline">Press <kbd className="font-sans px-1.5 py-0.5 bg-white border border-brand-200 rounded text-brand-600 shadow-sm mx-1">Esc</kbd> to close</span>
               <span>Apurvae Masale</span>
             </div>
           </motion.div>
