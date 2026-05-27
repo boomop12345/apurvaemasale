@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-brand-950: #1d120f;
+  --color-brand-900: #2d1d19;
+  --color-brand-850: #3c2a25;
+  --color-brand-800: #4a342f;
+  --color-brand-700: #6b4d45;
+  --color-brand-600: #8d6b62;
+  --color-brand-500: #a58379;
+  --color-brand-450: #b4938a;
+  --color-brand-400: #c1a49c;
+  --color-brand-355: #cccac8;
+  --color-brand-300: #cfbbb5;
+  --color-brand-250: #dfcfca;
+  --color-brand-200: #eadedb;
+  --color-brand-150: #f1eae7;
+  --color-brand-105: #f4eeeb;
+  --color-brand-100: #f6f1ee;
+  --color-brand-55 : #FAF6F4;
+  --color-brand-50 : #fbfdfc;
+  
+  --color-gold-600: #b8860b;
+  --color-gold-500: #d4a373;
+  --color-gold-400: #e8c547;
+  --color-gold-200: #f4e3b1;
+  --color-gold-100: #faf3dd;
+  --color-gold-50 : #fefeeb;
+  --color-gold-25 : #fffff0;
+  
+  --animate-spin-slow: spin 16s linear infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: var(--animate-spin-slow);
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
